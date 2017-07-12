@@ -13,7 +13,7 @@
 		<script src="react/build/react-dom.js"></script>
 		<script>
 			ReactDOM.render(
-				React.DOM.h1({id:"my-heading"},"Hello React!!"),
+				React.DOM.h1({id:"my-heading"},React.DOM.span(null,"Hello"),"world"),
 				document.getElementById("app")
 			);
 		</script>
