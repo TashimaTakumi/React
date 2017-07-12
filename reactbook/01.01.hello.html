@@ -8,12 +8,12 @@
 		<div id="app">
 			<!--アプリケーションがここに描写されます-->
 		</div>
+		
 		<script src="react/build/react.js"></script>
 		<script src="react/build/react-dom.js"></script>
-		
 		<script>
 			ReactDOM.render(
-				React.DOM.h1(null,"Hello React!!"),
+				React.DOM.h1({id:"my-heading"},"Hello React!!"),
 				document.getElementById("app")
 			);
 		</script>
