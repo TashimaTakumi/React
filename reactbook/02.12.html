@@ -14,6 +14,29 @@
 		<script>
 				
 			var TextAreaCounter=React.createClass({
+				_log:function(methodName,args){
+					console.log(methodName,args);
+				},
+				componentWillUpdate:function(){
+					this._log('componentWillUpdate',arguments);
+				},
+				componentDidUpdate:function(oldProps,oldState){
+					if(this.state.text.length>3){
+						this.replaceState(oldState);
+					}
+					this._log('componentDidUpdate',arguments);
+				},
+				componentWillMount:function(){
+					this._log('compnentWillMount',arguments);
+				},
+				componentDidMount:function(){
+					this._log('componentDidMount',arguments);
+					ReactDOM.findDOMNode(this);
+				},
+				componentWillUnmount:function(){
+					this._log('componentWillUnmount',arguments);
+				},
+				
 				propType:{
 					delaultValue:React.PropTypes.string,
 				},
@@ -36,6 +59,12 @@
 					});
 				},
 				
+				componentWillReceiveProps: function(newProps){
+					this.setState({
+						text:newProps.defaultValue,
+					});
+				},
+				
 				render:function(){
 					return React.DOM.div(null,
 						React.DOM.textarea({
@@ -53,6 +82,8 @@
 				}),
 				document.getElementById("app")
 			);
+			
+			
 		</script>
 	</body>
 </html>
